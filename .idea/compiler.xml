@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CicekSepetiSelenium" />
+        <module name="HB_CaseStudy" />
+        <module name="HB_Case" />
       </profile>
     </annotationProcessing>
   </component>

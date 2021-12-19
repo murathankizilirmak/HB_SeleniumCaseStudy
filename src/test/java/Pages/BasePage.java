@@ -2,8 +2,12 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     public static WebDriver driver;
@@ -15,20 +19,27 @@ public class BasePage {
         switch (BrowserType) {
             case "Firefox":
                 if (BrowserType.equals("Firefox")) {
-                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\mkizilirmak\\IdeaProjects\\CicekSepetiSelenium\\Browserdrivers\\geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", ".\\Browserdrivers\\geckodriver.exe");
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
-                    driver.get("https://www.lolaflora.com/login");
+                    driver.get("https://www.hepsiburada.com");
+                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
                 }
                 break;
             case "Chrome":
                 if (BrowserType.equals("Chrome")) {
-                    System.setProperty("webdriver.chrome.driver", "C:\\Users\\mkizilirmak\\IdeaProjects\\CicekSepetiSelenium\\Browserdrivers\\chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", ".\\Browserdrivers\\chromedriver.exe");
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
-                    driver.get("https://www.lolaflora.com/login");
+                    driver.get("https://www.hepsiburada.com");
+                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
                 }
         }
+    }
+    @AfterTest
+    public void close()
+    {
+        driver.quit();
     }
 }
 
